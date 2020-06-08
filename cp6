@@ -1,0 +1,77 @@
+
+int fact(n){
+
+if(n==0) return 1;
+
+	return n*fact(n-1);
+}
+
+if(n==0) return 1;
+
+
+
+boolean palin(String s, int start, int end){
+	if(start==end) return true;
+
+	if(s[start]==s[end])
+		return palin(s,start++,end--);
+
+	return false;	
+
+
+
+
+int power(int num, int pow){
+	
+	if(pow==0)return 1;
+
+	if(pow%2==0){
+		return power(num*num, pow/2);
+	}else{
+		return num*power(num, pow-1);
+	}
+	
+}
+
+void getcombi(int i, int N,  vector<int> &s){
+	
+	if(N==0) print(s)
+
+	for(int j=i; i<=N; j++){
+		s.pushback(j)
+		getcombi(j,N-j,s);
+		s.popback();
+	}
+
+}
+
+void getcombi(int i, int[] N,  vector<int> &s, int sum){
+	
+	if(sum==0) print(s)
+
+	for(int j=0; j<=N.size(); j++){
+		s.pushback(N[j]);
+		getcombi(j++,N,s,sum-N[j]);
+		s.popback();
+	}
+
+}
+
+void getPath(int[][] mat, int x, int y){
+	
+if(x=n-1 && y==m-1) print(path);
+
+	if(x<0 || y<0 || x>n-1|| y>m-1 || mat[x][y]==0)
+		return ;
+
+	if(mat[x+1][y]==1){
+		cout<<x<<y;
+		getPath(mat, x+1,y)
+	}
+	if(mat[x][y+1]==1){
+		cout<<x<<y;
+		getPath(mat, x,y+1)
+	}
+
+
+}
