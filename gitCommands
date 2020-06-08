@@ -1,0 +1,7 @@
+1.)git init
+2.)git remote add origin <URL>
+3.) git add .
+4.)git reset ==> Your changes will be unstaged and ready for you to re-add
+5.)git reset --hard.
+
+It will not only unstage your added files, but will revert any changes you made in your working directory. If you created any new files in working directory, it will not delete them though.
