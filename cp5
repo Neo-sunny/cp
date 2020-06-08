@@ -1,0 +1,26 @@
+
+String s ="";
+while(n){
+	s+= n%2;
+	n/=2;
+}
+cout<<s.reverse();
+
+
+
+int maxpowerof2(n){
+
+	int n =20;
+    int bit=0, ind=0;
+    while(n){
+        if(n&1==1){bit=ind;}
+        ind++;
+        n=n>>1;
+    }
+    cout<<bit;
+
+    return bit;
+}
+
+243796738350
+636157472
