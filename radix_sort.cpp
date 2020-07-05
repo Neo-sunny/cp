@@ -15,18 +15,13 @@ void radix_sort(vector<pair<int, int>> &a){
     for (int i = 1; i < n; i++) {
         pos[i]= pos[i-1] +cnt[i-1];
     }
-    cout<<"printing pos std::arr\n";
-    // for (int i = 0; i < n; i++) {
-    //     cout<<pos[i]<<" ";
-    // }cout<<"\n";
+    
     for(auto x:a){
         int i = x.second;
         a_new[pos[i]] = x;
         pos[i]++;
     }
-    for (int i = 0; i < n; i++) {
-        cout<<i<<" "<<a_new[i].first<<","<<a_new[i].second<<"\n";
-    }
+   
     a = a_new;
 }
     {
@@ -37,22 +32,15 @@ void radix_sort(vector<pair<int, int>> &a){
     vector<pair<int, int>> a_new(n);
     vector<int> pos(n);
     pos[0]=0;
-    cout<<"printing pos std::arr\n";
-    for (int i = 0; i < n; i++) {
-        cout<<pos[i]<<" ";
-    }cout<<"\n";
+   
     for(auto x:a){
         int i = x.first;
         a_new[pos[i]] = x;
         pos[i]++;
     }
-    for (int i = 0; i < n; i++) {
-        cout<<i<<" "<<a_new[i].first<<","<<a_new[i].second<<"\n";
+    
+    a = a_new;
     }
-    }
-
-
-
 
 }
 int main() {
