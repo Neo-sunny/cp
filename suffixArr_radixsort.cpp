@@ -2,14 +2,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void radix_sort(vector<pair<pair><int, int>, int>> &a){
+void radix_sort(vector<pair<pair<int, int>, int>> &a){
     int n = a.size();
-    vector<int> cnt(n);
-{
+    
+{   vector<int> cnt(n);
     for(auto x:a){
-        cnt[x.a.first.second]++;
+        cnt[x.first.second]++;
     }
-    vector<pair<pair><int, int>, int>> a_new(n);
+    vector<pair<pair<int, int>, int>> a_new(n);
     vector<int> pos(n);
     pos[0]=0;
     for (int i = 1; i < n; ++i)
@@ -25,10 +25,11 @@ void radix_sort(vector<pair<pair><int, int>, int>> &a){
     a = a_new;
   }  
 {
+     vector<int> cnt(n);
     for(auto x:a){
-        cnt[x.a.first.first]++;
+        cnt[x.first.first]++;
     }
-    vector<pair<pair><int, int>, int>> a_new(n);
+    vector<pair<pair<int, int>, int>> a_new(n);
     vector<int> pos(n);
     pos[0]=0;
     for (int i = 1; i < n; ++i)
@@ -46,21 +47,21 @@ void radix_sort(vector<pair<pair><int, int>, int>> &a){
 }
 
 int main(){
-	string s;
-	cin>>s;
-	s +="$";
-	int n = s.size();
+    string s;
+    cin>>s;
+    s +="$";
+    int n = s.size();
 
-	// p(n) stores the sorted array and c(n) stores the equivalence classes;
-	vector<int> p(n), c(n);
-	{
-		// k=0
-		vector<pair<char, int> > a(n);
-		for (int i = 0; i < n; ++i)
-		{
-			a[i] = {s[i],i};
-		}
-        radix_sort(a);
+    // p(n) stores the sorted array and c(n) stores the equivalence classes;
+    vector<int> p(n), c(n);
+    {
+        // k=0
+        vector<pair<char, int> > a(n);
+        for (int i = 0; i < n; ++i)
+        {
+            a[i] = {s[i],i};
+        }
+         sort(a.begin(), a.end());
         
         for (int i = 0; i < n; i++) {
             p[i]= a[i].second;
@@ -77,7 +78,8 @@ int main(){
             for (int i = 0; i < n; i++) {
                 a[i] = { {c[i],c[(i+(1<<k))%n]}, i};
             }
-            sort(a.begin(), a.end());
+            radix_sort(a);
+           
             
             for (int i = 0; i < n; i++) {
             p[i]= a[i].second;
@@ -92,10 +94,10 @@ int main(){
         }
         
         
-		for (int i = 0; i < n; ++i)
-		{
-			cout<<p[i]<<" "<<s.substr(p[i], n-p[i])<< "\n";
-		}
-	}
-	return 0;
+        for (int i = 0; i < n; ++i)
+        {
+            cout<<p[i]<<" "<<s.substr(p[i], n-p[i])<< "\n";
+        }
+    }
+    return 0;
 }
